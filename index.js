@@ -4,6 +4,7 @@ const config = require("./config.json");
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setActivity('Nocne Marki', {type: 'WATCHING'});
   });
   
   client.on('message', msg => {
@@ -12,13 +13,10 @@ client.on('ready', () => {
     }
 
 
-    if (msg.content === 'https://discord.gg/') { 
-      if(msg.member.hasPermission('administrator')) return;
+    if (msg.content.includes('https://discord.gg/')) { 
       
-      else{
-      msg.author.sendMessage("Zgodnie z regulaminem zakazuję się reklamowania serwerów poza kanałami <#610974847165661200>, <#610974781055172608> i <#610974847165661200>  po uzgodnieniu tego z <@&604841898724556860>");
+      msg.author.sendMessage("Zgodnie z regulaminem zakazuję się reklamowania serwerów poza kanałami <#610974847165661200>, <#610974781055172608> i <#610974847165661200>  po uzgodnieniu tego z Administratorem");
       msg.delete(10);
-      }
     }
     
 
